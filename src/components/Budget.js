@@ -2,11 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, dispatch } = useContext(AppContext);
-    // if(budget > 1000) {
-    //     alert("Budget cannot exceed  £20,000");
-    //     return;
-    // }
+    const { budget, dispatch , currency} = useContext(AppContext);
 
     const setBudget = (value) => {
         dispatch({
@@ -17,13 +13,13 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <label style={{ marginLeft: '2rem', size: 10 }}>Budget: {currency}</label>
             <input
                 required='required'
                 type='number'
                 id='budget'
                 value={budget}
-                style={{ marginLeft: '2rem', size: 10 }}
+                style={{ marginLeft: '0rem', size: 10 }}
                 step = '10'
                 onChange={(event) => setBudget(event.target.value)}>
             </input>
